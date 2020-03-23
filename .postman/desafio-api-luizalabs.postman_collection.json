@@ -1,0 +1,403 @@
+{
+	"info": {
+		"_postman_id": "c2ea3194-43dd-47b5-a3be-a45ccc0e0c7e",
+		"name": "desafio-api-luizalabs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "USUARIO",
+			"item": [
+				{
+					"name": "Produtos Favoritos",
+					"item": [
+						{
+							"name": "Adicionar Produto Favorito",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"product_id\": \"6a512e6c-6627-d286-5d18-583558359ab6\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}{{port}}/usuario/{{user_id}}/produto",
+									"host": [
+										"{{host}}{{port}}"
+									],
+									"path": [
+										"usuario",
+										"{{user_id}}",
+										"produto"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e1887d48-bb46-42f7-890c-95c13c6b9463",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "6c08f1a3-fb58-45ea-b45b-3df6d4eef94e",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Criar usuário",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6f5e33b6-17b2-4042-87e6-ce0f382debff",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "d0ce20be-4a0d-42e9-b7f5-dab752f9451f",
+								"exec": [
+									"let value = pm.response.json()._id;    ",
+									"pm.environment.set(\"user_id\", value );",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"denis\",\n\t\"email\": \"teste12356@hotmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}{{port}}/usuario",
+							"host": [
+								"{{host}}{{port}}"
+							],
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get usuário by ID",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6f5e33b6-17b2-4042-87e6-ce0f382debff",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "d0ce20be-4a0d-42e9-b7f5-dab752f9451f",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}{{port}}/usuario/{{user_id}}",
+							"host": [
+								"{{host}}{{port}}"
+							],
+							"path": [
+								"usuario",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete usuário",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6f5e33b6-17b2-4042-87e6-ce0f382debff",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "d0ce20be-4a0d-42e9-b7f5-dab752f9451f",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}{{port}}/usuario/{{user_id}}",
+							"host": [
+								"{{host}}{{port}}"
+							],
+							"path": [
+								"usuario",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update usuário",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6f5e33b6-17b2-4042-87e6-ce0f382debff",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "d0ce20be-4a0d-42e9-b7f5-dab752f9451f",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"denis2\",\n\t\"email\": \"teste12325@hotmail.com\",\n\t\"produtosFavoritos\":[],\n\t\"endereco\": {\n\t\t\"logradouro\": \"rua teste\",\n\t\t\"numero\": \"28\",\n\t\t\"bairro\": \"teste\",\n\t\t\"cidade\": \"São Paulo\",\n\t\t\"estado\": \"SP\",\n\t\t\"cep\": \"00000000\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}{{port}}/usuario/{{user_id}}",
+							"host": [
+								"{{host}}{{port}}"
+							],
+							"path": [
+								"usuario",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Aplicação/Autenticação",
+			"item": [
+				{
+					"name": "Cadastrar Aplicação",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4f548726-37ee-4965-af39-953be996adf7",
+								"exec": [
+									"pm.environment.set(\"app_id\", '\"'+pm.response.json().app_id+'\"');"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"sigla\":\"MFE2\",\n\t\"nome\":\"Middleware Front-end\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}{{port}}/aplicacao",
+							"host": [
+								"{{host}}{{port}}"
+							],
+							"path": [
+								"aplicacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Autenticação",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5c1bd80a-aff0-4719-928b-61bf83e5e1b2",
+								"exec": [
+									"pm.environment.set(\"token\", pm.response.json().token || pm.environment.get(\"token\") );",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"app_id\": {{app_id}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}{{port}}/autenticacao",
+							"host": [
+								"{{host}}{{port}}"
+							],
+							"path": [
+								"autenticacao"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
